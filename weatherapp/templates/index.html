@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="weather-icon">
+            <img src="http://openweathermap.org/img/w/{{weather_icon}}.png" alt="" >
+        </div>
+        <div class="info">
+            <div class="search">
+               <form action="{% url 'weather_view' %}" method="get">
+                <div id="search-bar">
+                  <input type="text" name="city" id="" placeholder="Discover Your City Weather">
+                  <div></div>
+                </div>
+                  <button type="submit"><i class="fas fa-search"></i></button>
+               </form>
+
+            </div>
+            <div class="weather-details">
+                <h3>Weather Details For {{city}} at:</h3>
+                <ul style="list-style: none;color:gray">
+                    <table>
+
+                        <tr>
+                            <td><li>Date  <i class="fa fa-calendar" aria-hidden="true"></i>   :</li></td>
+                            <td><li>{{day}}</li></td>
+                        </tr>
+
+                        <tr>
+                            <td><li>Temperature  <i class="fa-solid fa-temperature-half"></i>   :</li></td>
+                            <td><li>{{temp}}</li></td>
+                        </tr>
+                        <tr>
+                            <td><li>Max-Temperature  <i class="fas fa-temperature-high"></i>   :</li></td>
+                            <td><li>{{max_temp}}</li></td>
+                        </tr>
+                        <tr>
+                            <td><li>Min-Temperature  <i class="fa-solid fa-temperature-low"></i>   :</li></td>
+                            <td><li>{{min_temp}}</li></td>
+                        </tr>
+                        <tr>
+                            <td><li>Wind  <i class="fas fa-wind"></i>   :</li></td>
+                            <td><li>{{wind}}</li></td>
+                        </tr>
+                        <tr>
+                            <td><li>Description   <i class="fa-solid fa-comment"></i>  :</li></td>
+                            <td><li>{{description}}</li></td>
+                        </tr>
+
+
+                    </table>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
