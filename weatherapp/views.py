@@ -8,7 +8,7 @@ import datetime
 def weather_view(request):
     if request.GET:
         city = request.GET['city']
-        api_id = "dc1bad549f3fb66bd267a454709a3e99"
+        api_id = ""
         url = "https://api.openweathermap.org/data/2.5/weather?q={}&appid={}".format(city, api_id)
     try:
         r = requests.get(url=url, params={"q": city, "appid": api_id, "units": "metric"})
